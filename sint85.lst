@@ -1,0 +1,1177 @@
+*
+* CPU 8085 disassembler.
+* v1.0
+*
+* Sint-85 | Sintel Systems | 8085 SBC
+*
+
+                                  ORG   $0000
+
+0000 21 00 21  |                  LXI   H,$2100
+0003 36 00     |                  MVI   M,$00
+0005 c3 3f 00  |                  JMP   $003f
+0008 22 ef 38  |                  SHLD  $38ef
+000b e1        |                  POP   H
+000c 22 f2 38  |                  SHLD  $38f2
+000f f5        |                  PUSH  PSW
+0010 e1        |                  POP   H
+0011 22 ed 38  |                  SHLD  $38ed
+0014 c3 4a 00  |                  JMP   $004a
+0017 00        |                  NOP
+0018 c3 fa 1b  |                  JMP   $1bfa
+001b 00        |                  NOP
+001c 00        |                  NOP
+001d 00        |                  NOP
+001e 00        |                  NOP
+001f 00        |                  NOP
+0020 c3 fd 1b  |                  JMP   $1bfd
+0023 00        |                  NOP
+0024 c3 c4 01  |                  JMP   $01c4
+0027 00        |                  NOP
+0028 c3 c8 38  |                  JMP   $38c8
+002b 00        |                  NOP
+002c c3 47 03  |                  JMP   $0347
+002f 00        |                  NOP
+0030 c3 cb 38  |                  JMP   $38cb
+0033 00        |                  NOP
+0034 c3 ce 38  |                  JMP   $38ce
+0037 00        |                  NOP
+0038 c3 d1 38  |                  JMP   $38d1
+003b 00        |                  NOP
+003c c3 d4 38  |                  JMP   $38d4
+003f 36 cc     |                  MVI   M,$cc
+0041 7d        |                  MOV   A,L
+0042 d3 38     |                  OUT   $38
+0044 32 ff 38  |                  STA   $38ff
+0047 c3 08 00  |                  JMP   $0008
+004a 21 00 00  |                  LXI   H,$0000
+004d 39        |                  DAD   SP
+004e c3 e7 03  |                  JMP   $03e7
+0051 20        |                  RIM
+0052 e6 0f     |                  ANI   $0f
+0054 32 f1 38  |                  STA   $38f1
+0057 3e 0e     |                  MVI   A,$0e
+0059 30        |                  SIM
+005a f3        |                  DI
+005b 26 21     |                  MVI   H,$21
+005d 36 90     |                  MVI   M,$90
+005f 25        |                  DCR   H
+0060 36 29     |                  MVI   M,$29
+0062 36 bf     |                  MVI   M,$bf
+0064 36 ba     |                  MVI   M,$ba
+0066 36 f8     |                  MVI   M,$f8
+0068 36 08     |                  MVI   M,$08
+006a 36 29     |                  MVI   M,$29
+006c 3e 80     |                  MVI   A,$80
+006e 32 fe 38  |                  STA   $38fe
+0071 31 e9 38  |                  LXI   SP,$38e9
+0074 cd 09 02  |                  CALL  $0209
+0077 fe 12     |                  CPI   $12
+0079 ca 9f 00  |                  JZ    $009f
+007c fe 13     |                  CPI   $13
+007e ca 6a 01  |                  JZ    $016a
+0081 fe 14     |                  CPI   $14
+0083 ca 36 01  |                  JZ    $0136
+0086 fe 15     |                  CPI   $15
+0088 ca e6 00  |                  JZ    $00e6
+008b 26 21     |                  MVI   H,$21
+008d 36 90     |                  MVI   M,$90
+008f 25        |                  DCR   H
+0090 36 98     |                  MVI   M,$98
+0092 36 68     |                  MVI   M,$68
+0094 36 7c     |                  MVI   M,$7c
+0096 36 c8     |                  MVI   M,$c8
+0098 36 ff     |                  MVI   M,$ff
+009a 36 7a     |                  MVI   M,$7a
+009c c3 71 00  |                  JMP   $0071
+009f 06 01     |                  MVI   B,$01
+00a1 cd f8 01  |                  CALL  $01f8
+00a4 06 00     |                  MVI   B,$00
+00a6 cd e3 02  |                  CALL  $02e3
+00a9 d2 8b 00  |                  JNC   $008b
+00ac eb        |                  XCHG
+00ad 22 f6 38  |                  SHLD  $38f6
+00b0 fe 11     |                  CPI   $11
+00b2 c2 de 00  |                  JNZ   $00de
+00b5 06 00     |                  MVI   B,$00
+00b7 cd 48 02  |                  CALL  $0248
+00ba 2a f6 38  |                  LHLD  $38f6
+00bd 7e        |                  MOV   A,M
+00be c3 60 03  |                  JMP   $0360
+00c1 06 01     |                  MVI   B,$01
+00c3 cd e3 02  |                  CALL  $02e3
+00c6 f5        |                  PUSH  PSW
+00c7 d2 d3 00  |                  JNC   $00d3
+00ca 2a f6 38  |                  LHLD  $38f6
+00cd 73        |                  MOV   M,E
+00ce 7b        |                  MOV   A,E
+00cf be        |                  CMP   M
+00d0 c2 8b 00  |                  JNZ   $008b
+00d3 2a f6 38  |                  LHLD  $38f6
+00d6 23        |                  INX   H
+00d7 22 f6 38  |                  SHLD  $38f6
+00da f1        |                  POP   PSW
+00db c3 b0 00  |                  JMP   $00b0
+00de ee 10     |                  XRI   $10
+00e0 c2 8b 00  |                  JNZ   $008b
+00e3 c3 27 01  |                  JMP   $0127
+00e6 06 01     |                  MVI   B,$01
+00e8 cd f8 01  |                  CALL  $01f8
+00eb cd 2b 02  |                  CALL  $022b
+00ee d2 8b 00  |                  JNC   $008b
+00f1 cd 19 02  |                  CALL  $0219
+00f4 cd d6 02  |                  CALL  $02d6
+00f7 7e        |                  MOV   A,M
+00f8 32 f8 38  |                  STA   $38f8
+00fb 06 01     |                  MVI   B,$01
+00fd cd 54 02  |                  CALL  $0254
+0100 06 01     |                  MVI   B,$01
+0102 cd e3 02  |                  CALL  $02e3
+0105 d2 0c 01  |                  JNC   $010c
+0108 cd d6 02  |                  CALL  $02d6
+010b 73        |                  MOV   M,E
+010c fe 10     |                  CPI   $10
+010e ca 27 01  |                  JZ    $0127
+0111 fe 11     |                  CPI   $11
+0113 c2 8b 00  |                  JNZ   $008b
+0116 3a fd 38  |                  LDA   $38fd
+0119 fe 0c     |                  CPI   $0c
+011b d2 27 01  |                  JNC   $0127
+011e 3c        |                  INR   A
+011f 32 fd 38  |                  STA   $38fd
+0122 c3 f1 00  |                  JMP   $00f1
+0125 00        |                  NOP
+0126 00        |                  NOP
+0127 06 00     |                  MVI   B,$00
+0129 cd f8 01  |                  CALL  $01f8
+012c 26 21     |                  MVI   H,$21
+012e 36 95     |                  MVI   M,$95
+0130 25        |                  DCR   H
+0131 36 7a     |                  MVI   M,$7a
+0133 c3 71 00  |                  JMP   $0071
+0136 cd 98 02  |                  CALL  $0298
+0139 cd 09 02  |                  CALL  $0209
+013c fe 10     |                  CPI   $10
+013e ca 57 01  |                  JZ    $0157
+0141 32 fe 38  |                  STA   $38fe
+0144 06 01     |                  MVI   B,$01
+0146 cd f8 01  |                  CALL  $01f8
+0149 06 00     |                  MVI   B,$00
+014b cd e3 02  |                  CALL  $02e3
+014e fe 10     |                  CPI   $10
+0150 c2 8b 00  |                  JNZ   $008b
+0153 eb        |                  XCHG
+0154 22 f2 38  |                  SHLD  $38f2
+0157 06 00     |                  MVI   B,$00
+0159 cd f8 01  |                  CALL  $01f8
+015c 26 21     |                  MVI   H,$21
+015e 36 90     |                  MVI   M,$90
+0160 25        |                  DCR   H
+0161 36 fa     |                  MVI   M,$fa
+0163 36 3e     |                  MVI   M,$3e
+0165 36 ba     |                  MVI   M,$ba
+0167 c3 ad 02  |                  JMP   $02ad
+016a cd 98 02  |                  CALL  $0298
+016d cd 09 02  |                  CALL  $0209
+0170 fe 10     |                  CPI   $10
+0172 ca 27 01  |                  JZ    $0127
+0175 fe 11     |                  CPI   $11
+0177 ca 93 01  |                  JZ    $0193
+017a 32 fe 38  |                  STA   $38fe
+017d 06 01     |                  MVI   B,$01
+017f cd f8 01  |                  CALL  $01f8
+0182 06 00     |                  MVI   B,$00
+0184 cd e3 02  |                  CALL  $02e3
+0187 d2 8b 00  |                  JNC   $008b
+018a eb        |                  XCHG
+018b 22 f2 38  |                  SHLD  $38f2
+018e fe 10     |                  CPI   $10
+0190 ca 27 01  |                  JZ    $0127
+0193 3a f1 38  |                  LDA   $38f1
+0196 e6 08     |                  ANI   $08
+0198 32 fd 38  |                  STA   $38fd
+019b 2a f2 38  |                  LHLD  $38f2
+019e 7e        |                  MOV   A,M
+019f fe f3     |                  CPI   $f3
+01a1 c2 a8 01  |                  JNZ   $01a8
+01a4 af        |                  XRA   A
+01a5 c3 af 01  |                  JMP   $01af
+01a8 fe fb     |                  CPI   $fb
+01aa c2 b2 01  |                  JNZ   $01b2
+01ad 3e 08     |                  MVI   A,$08
+01af 32 fd 38  |                  STA   $38fd
+01b2 3e 40     |                  MVI   A,$40
+01b4 d3 3d     |                  OUT   $3d
+01b6 3e c5     |                  MVI   A,$c5
+01b8 d3 3c     |                  OUT   $3c
+01ba 3a ff 38  |                  LDA   $38ff
+01bd f6 c0     |                  ORI   $c0
+01bf d3 38     |                  OUT   $38
+01c1 c3 ad 02  |                  JMP   $02ad
+01c4 f5        |                  PUSH  PSW
+01c5 3a ff 38  |                  LDA   $38ff
+01c8 e6 3f     |                  ANI   $3f
+01ca f6 40     |                  ORI   $40
+01cc d3 38     |                  OUT   $38
+01ce f1        |                  POP   PSW
+01cf 22 ef 38  |                  SHLD  $38ef
+01d2 e1        |                  POP   H
+01d3 22 f2 38  |                  SHLD  $38f2
+01d6 f5        |                  PUSH  PSW
+01d7 e1        |                  POP   H
+01d8 22 ed 38  |                  SHLD  $38ed
+01db 21 00 00  |                  LXI   H,$0000
+01de 39        |                  DAD   SP
+01df 22 f4 38  |                  SHLD  $38f4
+01e2 21 ed 38  |                  LXI   H,$38ed
+01e5 f9        |                  SPHL
+01e6 c5        |                  PUSH  B
+01e7 d5        |                  PUSH  D
+01e8 20        |                  RIM
+01e9 e6 07     |                  ANI   $07
+01eb 21 fd 38  |                  LXI   H,$38fd
+01ee b6        |                  ORA   M
+01ef 32 f1 38  |                  STA   $38f1
+01f2 3e 0e     |                  MVI   A,$0e
+01f4 30        |                  SIM
+01f5 c3 6a 01  |                  JMP   $016a
+01f8 26 21     |                  MVI   H,$21
+01fa 36 dc     |                  MVI   M,$dc
+01fc 16 01     |                  MVI   D,$01
+01fe cd 60 02  |                  CALL  $0260
+0201 05        |                  DCR   B
+0202 f8        |                  RM
+0203 36 93     |                  MVI   M,$93
+0205 25        |                  DCR   H
+0206 36 f7     |                  MVI   M,$f7
+0208 c9        |                  RET
+0209 21 fe 38  |                  LXI   H,$38fe
+020c 7e        |                  MOV   A,M
+020d b7        |                  ORA   A
+020e f2 15 02  |                  JP    $0215
+0211 fb        |                  EI
+0212 c3 09 02  |                  JMP   $0209
+0215 36 80     |                  MVI   M,$80
+0217 f3        |                  DI
+0218 c9        |                  RET
+0219 2a fd 38  |                  LHLD  $38fd
+021c 26 00     |                  MVI   H,$00
+021e 29        |                  DAD   H
+021f 29        |                  DAD   H
+0220 01 8e 03  |                  LXI   B,$038e
+0223 09        |                  DAD   B
+0224 af        |                  XRA   A
+0225 06 00     |                  MVI   B,$00
+0227 cd 68 02  |                  CALL  $0268
+022a c9        |                  RET
+022b cd 09 02  |                  CALL  $0209
+022e fe 10     |                  CPI   $10
+0230 d2 45 02  |                  JNC   $0245
+0233 d6 03     |                  SUI   $03
+0235 da 45 02  |                  JC    $0245
+0238 4f        |                  MOV   C,A
+0239 06 00     |                  MVI   B,$00
+023b 21 81 03  |                  LXI   H,$0381
+023e 09        |                  DAD   B
+023f 7e        |                  MOV   A,M
+0240 32 fd 38  |                  STA   $38fd
+0243 37        |                  STC
+0244 c9        |                  RET
+0245 37        |                  STC
+0246 3f        |                  CMC
+0247 c9        |                  RET
+0248 2a f6 38  |                  LHLD  $38f6
+024b eb        |                  XCHG
+024c cd 25 03  |                  CALL  $0325
+024f af        |                  XRA   A
+0250 cd 68 02  |                  CALL  $0268
+0253 c9        |                  RET
+0254 3a f8 38  |                  LDA   $38f8
+0257 57        |                  MOV   D,A
+0258 cd 25 03  |                  CALL  $0325
+025b 3e 01     |                  MVI   A,$01
+025d c3 50 02  |                  JMP   $0250
+0260 1b        |                  DCX   D
+0261 7a        |                  MOV   A,D
+0262 b3        |                  ORA   E
+0263 c2 60 02  |                  JNZ   $0260
+0266 c9        |                  RET
+0267 00        |                  NOP
+0268 0f        |                  RRC
+0269 da 73 02  |                  JC    $0273
+026c 0e 04     |                  MVI   C,$04
+026e 3e 90     |                  MVI   A,$90
+0270 c3 77 02  |                  JMP   $0277
+0273 0e 02     |                  MVI   C,$02
+0275 3e 94     |                  MVI   A,$94
+0277 32 00 21  |                  STA   $2100
+027a 7e        |                  MOV   A,M
+027b eb        |                  XCHG
+027c 21 6b 03  |                  LXI   H,$036b
+027f 85        |                  ADD   L
+0280 6f        |                  MOV   L,A
+0281 7e        |                  MOV   A,M
+0282 61        |                  MOV   H,C
+0283 25        |                  DCR   H
+0284 c2 8d 02  |                  JNZ   $028d
+0287 05        |                  DCR   B
+0288 c2 8d 02  |                  JNZ   $028d
+028b f6 08     |                  ORI   $08
+028d 2f        |                  CMA
+028e 32 00 20  |                  STA   $2000
+0291 eb        |                  XCHG
+0292 23        |                  INX   H
+0293 0d        |                  DCR   C
+0294 c2 7a 02  |                  JNZ   $027a
+0297 c9        |                  RET
+0298 2a f2 38  |                  LHLD  $38f2
+029b 22 f6 38  |                  SHLD  $38f6
+029e 7e        |                  MOV   A,M
+029f 32 f8 38  |                  STA   $38f8
+02a2 06 01     |                  MVI   B,$01
+02a4 cd 48 02  |                  CALL  $0248
+02a7 06 00     |                  MVI   B,$00
+02a9 cd 54 02  |                  CALL  $0254
+02ac c9        |                  RET
+02ad 3a f1 38  |                  LDA   $38f1
+02b0 f6 18     |                  ORI   $18
+02b2 30        |                  SIM
+02b3 3a f1 38  |                  LDA   $38f1
+02b6 e6 08     |                  ANI   $08
+02b8 ca bf 02  |                  JZ    $02bf
+02bb fb        |                  EI
+02bc c3 c3 02  |                  JMP   $02c3
+02bf 37        |                  STC
+02c0 d2 c3 02  |                  JNC   $02c3
+02c3 21 e9 38  |                  LXI   H,$38e9
+02c6 f9        |                  SPHL
+02c7 d1        |                  POP   D
+02c8 c1        |                  POP   B
+02c9 f1        |                  POP   PSW
+02ca 2a f4 38  |                  LHLD  $38f4
+02cd f9        |                  SPHL
+02ce 2a f2 38  |                  LHLD  $38f2
+02d1 e5        |                  PUSH  H
+02d2 2a ef 38  |                  LHLD  $38ef
+02d5 c9        |                  RET
+02d6 2a fd 38  |                  LHLD  $38fd
+02d9 26 00     |                  MVI   H,$00
+02db 01 c6 03  |                  LXI   B,$03c6
+02de 09        |                  DAD   B
+02df 6e        |                  MOV   L,M
+02e0 26 38     |                  MVI   H,$38
+02e2 c9        |                  RET
+02e3 0e 00     |                  MVI   C,$00
+02e5 c5        |                  PUSH  B
+02e6 11 00 00  |                  LXI   D,$0000
+02e9 d5        |                  PUSH  D
+02ea cd 09 02  |                  CALL  $0209
+02ed fe 10     |                  CPI   $10
+02ef d2 0d 03  |                  JNC   $030d
+02f2 d1        |                  POP   D
+02f3 cd 57 03  |                  CALL  $0357
+02f6 c1        |                  POP   B
+02f7 0e 01     |                  MVI   C,$01
+02f9 c5        |                  PUSH  B
+02fa d5        |                  PUSH  D
+02fb 78        |                  MOV   A,B
+02fc 0f        |                  RRC
+02fd d2 01 03  |                  JNC   $0301
+0300 53        |                  MOV   D,E
+0301 cd 25 03  |                  CALL  $0325
+0304 78        |                  MOV   A,B
+0305 06 01     |                  MVI   B,$01
+0307 cd 68 02  |                  CALL  $0268
+030a c3 ea 02  |                  JMP   $02ea
+030d d1        |                  POP   D
+030e c1        |                  POP   B
+030f fe 11     |                  CPI   $11
+0311 00        |                  NOP
+0312 ca 20 03  |                  JZ    $0320
+0315 fe 10     |                  CPI   $10
+0317 ca 20 03  |                  JZ    $0320
+031a 11 00 00  |                  LXI   D,$0000
+031d c3 45 02  |                  JMP   $0245
+0320 47        |                  MOV   B,A
+0321 79        |                  MOV   A,C
+0322 0f        |                  RRC
+0323 78        |                  MOV   A,B
+0324 c9        |                  RET
+0325 7a        |                  MOV   A,D
+0326 0f        |                  RRC
+0327 0f        |                  RRC
+0328 0f        |                  RRC
+0329 0f        |                  RRC
+032a e6 0f     |                  ANI   $0f
+032c 21 f9 38  |                  LXI   H,$38f9
+032f 77        |                  MOV   M,A
+0330 7a        |                  MOV   A,D
+0331 e6 0f     |                  ANI   $0f
+0333 23        |                  INX   H
+0334 77        |                  MOV   M,A
+0335 7b        |                  MOV   A,E
+0336 0f        |                  RRC
+0337 0f        |                  RRC
+0338 0f        |                  RRC
+0339 0f        |                  RRC
+033a e6 0f     |                  ANI   $0f
+033c 23        |                  INX   H
+033d 77        |                  MOV   M,A
+033e 7b        |                  MOV   A,E
+033f e6 0f     |                  ANI   $0f
+0341 23        |                  INX   H
+0342 77        |                  MOV   M,A
+0343 21 f9 38  |                  LXI   H,$38f9
+0346 c9        |                  RET
+0347 e5        |                  PUSH  H
+0348 f5        |                  PUSH  PSW
+0349 26 21     |                  MVI   H,$21
+034b 36 40     |                  MVI   M,$40
+034d 25        |                  DCR   H
+034e 7e        |                  MOV   A,M
+034f e6 3f     |                  ANI   $3f
+0351 32 fe 38  |                  STA   $38fe
+0354 f1        |                  POP   PSW
+0355 e1        |                  POP   H
+0356 c9        |                  RET
+0357 eb        |                  XCHG
+0358 29        |                  DAD   H
+0359 29        |                  DAD   H
+035a 29        |                  DAD   H
+035b 29        |                  DAD   H
+035c 85        |                  ADD   L
+035d 6f        |                  MOV   L,A
+035e eb        |                  XCHG
+035f c9        |                  RET
+0360 32 f8 38  |                  STA   $38f8
+0363 06 01     |                  MVI   B,$01
+0365 cd 54 02  |                  CALL  $0254
+0368 c3 c1 00  |                  JMP   $00c1
+036b f3        |                  DI
+036c 60        |                  MOV   H,B
+036d b5        |                  ORA   L
+036e f4 66 d6  |                  CP    $d666
+0371 d7        |                  RST   2
+0372 70        |                  MOV   M,B
+0373 f7        |                  RST   6
+0374 76        |                  HLT
+0375 77        |                  MOV   M,A
+0376 c7        |                  RST   0
+0377 93        |                  SUB   E
+0378 e5        |                  PUSH  H
+0379 97        |                  SUB   A
+037a 17        |                  RAL
+037b 67        |                  MOV   H,A
+037c 83        |                  ADD   E
+037d 37        |                  STC
+037e 60        |                  MOV   H,B
+037f 05        |                  DCR   B
+0380 00        |                  NOP
+0381 06 09     |                  MVI   B,$09
+0383 0a        |                  LDAX  B
+0384 0b        |                  DCX   B
+0385 0c        |                  INR   C
+0386 07        |                  RLC
+0387 08        |                  DB    $08
+0387 00        |                  NOP
+0388 01 02 03  |                  LXI   B,$0302
+038b 04        |                  INR   B
+038c 05        |                  DCR   B
+038d 15        |                  DCR   D
+038e 15        |                  DCR   D
+038f 15        |                  DCR   D
+0390 0a        |                  LDAX  B
+0391 15        |                  DCR   D
+0392 15        |                  DCR   D
+0393 15        |                  DCR   D
+0394 0b        |                  DCX   B
+0395 15        |                  DCR   D
+0396 15        |                  DCR   D
+0397 15        |                  DCR   D
+0398 0c        |                  INR   C
+0399 15        |                  DCR   D
+039a 15        |                  DCR   D
+039b 15        |                  DCR   D
+039c 0d        |                  DCR   C
+039d 15        |                  DCR   D
+039e 15        |                  DCR   D
+039f 15        |                  DCR   D
+03a0 0e 15     |                  MVI   C,$15
+03a2 15        |                  DCR   D
+03a3 15        |                  DCR   D
+03a4 0f        |                  RRC
+03a5 15        |                  DCR   D
+03a6 15        |                  DCR   D
+03a7 15        |                  DCR   D
+03a8 13        |                  INX   D
+03a9 15        |                  DCR   D
+03aa 15        |                  DCR   D
+03ab 15        |                  DCR   D
+03ac 10        |                  DB    $10
+03ac 15        |                  DCR   D
+03ad 15        |                  DCR   D
+03ae 15        |                  DCR   D
+03af 11 15 05  |                  LXI   D,$0515
+03b2 12        |                  STAX  D
+03b3 10        |                  DB    $10
+03b3 15        |                  DCR   D
+03b4 05        |                  DCR   B
+03b5 12        |                  STAX  D
+03b6 11 15 12  |                  LXI   D,$1215
+03b9 0c        |                  INR   C
+03ba 10        |                  DB    $10
+03ba 15        |                  DCR   D
+03bb 12        |                  STAX  D
+03bc 0c        |                  INR   C
+03bd 11 00 00  |                  LXI   D,$0000
+03c0 00        |                  NOP
+03c1 00        |                  NOP
+03c2 ee ec     |                  XRI   $ec
+03c4 eb        |                  XCHG
+03c5 ea e9 ed  |                  JPE   $ede9
+03c8 f1        |                  POP   PSW
+03c9 f0        |                  RP
+03ca ef        |                  RST   5
+03cb f5        |                  PUSH  PSW
+03cc f4 f3 f2  |                  CP    $f2f3
+03cf 1a        |                  LDAX  D
+03d0 77        |                  MOV   M,A
+03d1 13        |                  INX   D
+03d2 23        |                  INX   H
+03d3 0b        |                  DCX   B
+03d4 79        |                  MOV   A,C
+03d5 b0        |                  ORA   B
+03d6 c2 d3 03  |                  JNZ   $03d3
+03d9 c9        |                  RET
+03da 77        |                  MOV   M,A
+03db 23        |                  INX   H
+03dc 0b        |                  DCX   B
+03dd 79        |                  MOV   A,C
+03de b0        |                  ORA   B
+03df c2 de 03  |                  JNZ   $03de
+03e2 c9        |                  RET
+03e3 22 f4 38  |                  SHLD  $38f4
+03e6 21 ed 38  |                  LXI   H,$38ed
+03e9 f9        |                  SPHL
+03ea c5        |                  PUSH  B
+03eb d5        |                  PUSH  D
+03ec c3 51 00  |                  JMP   $0051
+03ef 3e 03     |                  MVI   A,$03
+03f1 d3 38     |                  OUT   $38
+03f3 db 3b     |                  IN    $3b
+03f5 e6 07     |                  ANI   $07
+03f7 c9        |                  RET
+03f8 ff        |                  RST   7
+03f9 ff        |                  RST   7
+03fa ff        |                  RST   7
+03fb ff        |                  RST   7
+03fc 31 c8 38  |                  LXI   SP,$38c8
+03ff 3e 0d     |                  MVI   A,$0d
+0401 d3 38     |                  OUT   $38
+0403 32 ff 38  |                  STA   $38ff
+0406 3e 0a     |                  MVI   A,$0a
+0408 30        |                  SIM
+0409 01 d4 38  |                  LXI   B,$38d4
+040c 3e c3     |                  MVI   A,$c3
+040e 02        |                  STAX  B
+040f 03        |                  INX   B
+0410 3e 00     |                  MVI   A,$00
+0412 02        |                  STAX  B
+0413 03        |                  INX   B
+0414 3e 00     |                  MVI   A,$00
+0416 02        |                  STAX  B
+0417 3e 03     |                  MVI   A,$03
+0419 32 d1 38  |                  STA   $38d1
+041c cd e5 04  |                  CALL  $04e5
+041f cd 19 05  |                  CALL  $0519
+0422 3e 10     |                  MVI   A,$10
+0424 d3 3b     |                  OUT   $3b
+0426 21 c0 38  |                  LXI   H,$38c0
+0429 5e        |                  MOV   E,M
+042a 23        |                  INX   H
+042b 56        |                  MOV   D,M
+042c 23        |                  INX   H
+042d 4e        |                  MOV   C,M
+042e 23        |                  INX   H
+042f 46        |                  MOV   B,M
+0430 23        |                  INX   H
+0431 7e        |                  MOV   A,M
+0432 23        |                  INX   H
+0433 66        |                  MOV   H,M
+0434 6f        |                  MOV   L,A
+0435 cd 7a 04  |                  CALL  $047a
+0438 78        |                  MOV   A,B
+0439 bc        |                  CMP   H
+043a c2 4d 04  |                  JNZ   $044d
+043d 79        |                  MOV   A,C
+043e bd        |                  CMP   L
+043f c2 4d 04  |                  JNZ   $044d
+0442 3e 00     |                  MVI   A,$00
+0444 d3 3b     |                  OUT   $3b
+0446 c3 20 04  |                  JMP   $0420
+0449 3a d2 38  |                  LDA   $38d2
+044c b7        |                  ORA   A
+044d ca 93 04  |                  JZ    $0493
+0450 7e        |                  MOV   A,M
+0451 d3 39     |                  OUT   $39
+0453 32 ce 38  |                  STA   $38ce
+0456 7a        |                  MOV   A,D
+0457 e6 07     |                  ANI   $07
+0459 f6 30     |                  ORI   $30
+045b d3 3b     |                  OUT   $3b
+045d 32 cf 38  |                  STA   $38cf
+0460 7b        |                  MOV   A,E
+0461 d3 39     |                  OUT   $39
+0463 3e c0     |                  MVI   A,$c0
+0465 30        |                  SIM
+0466 3e 40     |                  MVI   A,$40
+0468 30        |                  SIM
+0469 20        |                  RIM
+046a 07        |                  RLC
+046b da 6d 04  |                  JC    $046d
+046e cd 8a 05  |                  CALL  $058a
+0471 13        |                  INX   D
+0472 23        |                  INX   H
+0473 c3 39 04  |                  JMP   $0439
+0476 fb        |                  EI
+0477 7e        |                  MOV   A,M
+0478 c5        |                  PUSH  B
+0479 e5        |                  PUSH  H
+047a d5        |                  PUSH  D
+047b cd 57 02  |                  CALL  $0257
+047e d1        |                  POP   D
+047f d5        |                  PUSH  D
+0480 cd 4c 02  |                  CALL  $024c
+0483 3a d1 38  |                  LDA   $38d1
+0486 57        |                  MOV   D,A
+0487 cd 60 02  |                  CALL  $0260
+048a d1        |                  POP   D
+048b e1        |                  POP   H
+048c c1        |                  POP   B
+048d f3        |                  DI
+048e c9        |                  RET
+048f e5        |                  PUSH  H
+0490 c5        |                  PUSH  B
+0491 fb        |                  EI
+0492 cd 09 02  |                  CALL  $0209
+0495 fe 14     |                  CPI   $14
+0497 ca 11 05  |                  JZ    $0511
+049a fe 11     |                  CPI   $11
+049c ca d1 04  |                  JZ    $04d1
+049f fe 13     |                  CPI   $13
+04a1 ca dd 04  |                  JZ    $04dd
+04a4 fe 10     |                  CPI   $10
+04a6 d2 95 04  |                  JNC   $0495
+04a9 47        |                  MOV   B,A
+04aa 78        |                  MOV   A,B
+04ab c5        |                  PUSH  B
+04ac d5        |                  PUSH  D
+04ad e5        |                  PUSH  H
+04ae cd 57 02  |                  CALL  $0257
+04b1 e1        |                  POP   H
+04b2 d1        |                  POP   D
+04b3 c1        |                  POP   B
+04b4 fb        |                  EI
+04b5 cd 09 02  |                  CALL  $0209
+04b8 fe 11     |                  CPI   $11
+04ba ca d7 04  |                  JZ    $04d7
+04bd d2 b8 04  |                  JNC   $04b8
+04c0 4f        |                  MOV   C,A
+04c1 78        |                  MOV   A,B
+04c2 07        |                  RLC
+04c3 07        |                  RLC
+04c4 07        |                  RLC
+04c5 07        |                  RLC
+04c6 e6 f0     |                  ANI   $f0
+04c8 b1        |                  ORA   C
+04c9 47        |                  MOV   B,A
+04ca c3 ae 04  |                  JMP   $04ae
+04cd c1        |                  POP   B
+04ce e1        |                  POP   H
+04cf 7e        |                  MOV   A,M
+04d0 c3 55 04  |                  JMP   $0455
+04d3 78        |                  MOV   A,B
+04d4 c1        |                  POP   B
+04d5 e1        |                  POP   H
+04d6 c3 55 04  |                  JMP   $0455
+04d9 3e ff     |                  MVI   A,$ff
+04db 32 d2 38  |                  STA   $38d2
+04de c3 d1 04  |                  JMP   $04d1
+04e1 26 21     |                  MVI   H,$21
+04e3 36 90     |                  MVI   M,$90
+04e5 25        |                  DCR   H
+04e6 36 88     |                  MVI   M,$88
+04e8 36 1c     |                  MVI   M,$1c
+04ea 36 f8     |                  MVI   M,$f8
+04ec 36 0c     |                  MVI   M,$0c
+04ee 36 fb     |                  MVI   M,$fb
+04f0 36 2c     |                  MVI   M,$2c
+04f2 fb        |                  EI
+04f3 cd 09 02  |                  CALL  $0209
+04f6 fe 14     |                  CPI   $14
+04f8 ca 07 05  |                  JZ    $0507
+04fb fe 13     |                  CPI   $13
+04fd ca 0d 05  |                  JZ    $050d
+0500 c3 f6 04  |                  JMP   $04f6
+0503 3e ff     |                  MVI   A,$ff
+0505 32 d2 38  |                  STA   $38d2
+0508 c9        |                  RET
+0509 af        |                  XRA   A
+050a c3 09 05  |                  JMP   $0509
+050d 3e 00     |                  MVI   A,$00
+050f d3 3b     |                  OUT   $3b
+0511 32 cf 38  |                  STA   $38cf
+0514 c9        |                  RET
+0515 0e 00     |                  MVI   C,$00
+0517 11 00 00  |                  LXI   D,$0000
+051a cd 5e 05  |                  CALL  $055e
+051d cd 6c 05  |                  CALL  $056c
+0520 fb        |                  EI
+0521 cd 09 02  |                  CALL  $0209
+0524 fe 10     |                  CPI   $10
+0526 d2 3a 05  |                  JNC   $053a
+0529 cd 57 03  |                  CALL  $0357
+052c c5        |                  PUSH  B
+052d d5        |                  PUSH  D
+052e cd 4c 02  |                  CALL  $024c
+0531 d1        |                  POP   D
+0532 c1        |                  POP   B
+0533 c3 24 05  |                  JMP   $0524
+0536 fe 10     |                  CPI   $10
+0538 ca 4c 05  |                  JZ    $054c
+053b fe 11     |                  CPI   $11
+053d ca 52 05  |                  JZ    $0552
+0540 fe 12     |                  CPI   $12
+0542 ca 08 00  |                  JZ    $0008
+0545 c3 24 05  |                  JMP   $0524
+0548 11 00 00  |                  LXI   D,$0000
+054b c3 30 05  |                  JMP   $0530
+054e d5        |                  PUSH  D
+054f 0c        |                  INR   C
+0550 79        |                  MOV   A,C
+0551 fe 03     |                  CPI   $03
+0553 c2 1b 05  |                  JNZ   $051b
+0556 d1        |                  POP   D
+0557 d1        |                  POP   D
+0558 d1        |                  POP   D
+0559 c9        |                  RET
+055a 26 21     |                  MVI   H,$21
+055c 36 90     |                  MVI   M,$90
+055e 25        |                  DCR   H
+055f 36 88     |                  MVI   M,$88
+0561 36 1a     |                  MVI   M,$1a
+0563 36 1a     |                  MVI   M,$1a
+0565 36 fa     |                  MVI   M,$fa
+0567 c9        |                  RET
+0568 21 82 05  |                  LXI   H,$0582
+056b 3e 94     |                  MVI   A,$94
+056d 32 00 21  |                  STA   $2100
+0570 79        |                  MOV   A,C
+0571 87        |                  ADD   A
+0572 85        |                  ADD   L
+0573 6f        |                  MOV   L,A
+0574 7e        |                  MOV   A,M
+0575 32 00 20  |                  STA   $2000
+0578 23        |                  INX   H
+0579 7e        |                  MOV   A,M
+057a 32 00 20  |                  STA   $2000
+057d c9        |                  RET
+057e 29        |                  DAD   H
+057f 3a 29 f8  |                  LDA   $f829
+0582 1a        |                  LDAX  D
+0583 29        |                  DAD   H
+0584 68        |                  MOV   L,B
+0585 fa c5 3a  |                  JM    $3ac5
+0588 cf        |                  RST   1
+0589 38        |                  DB    $38
+0589 e6 df     |                  ANI   $df
+058b d3 3b     |                  OUT   $3b
+058d 3a ce 38  |                  LDA   $38ce
+0590 47        |                  MOV   B,A
+0591 db 3a     |                  IN    $3a
+0593 b8        |                  CMP   B
+0594 c2 9e 05  |                  JNZ   $059e
+0597 c1        |                  POP   B
+0598 c9        |                  RET
+0599 32 cd 38  |                  STA   $38cd
+059c cd 11 05  |                  CALL  $0511
+059f 0e 03     |                  MVI   C,$03
+05a1 cd 6c 05  |                  CALL  $056c
+05a4 cd e8 05  |                  CALL  $05e8
+05a7 3a cd 38  |                  LDA   $38cd
+05aa cd 57 02  |                  CALL  $0257
+05ad cd e8 05  |                  CALL  $05e8
+05b0 3a ce 38  |                  LDA   $38ce
+05b3 cd 57 02  |                  CALL  $0257
+05b6 cd e8 05  |                  CALL  $05e8
+05b9 cf        |                  RST   1
+05ba ff        |                  RST   7
+05bb 31 c8 38  |                  LXI   SP,$38c8
+05be 3e 0d     |                  MVI   A,$0d
+05c0 d3 38     |                  OUT   $38
+05c2 21 ff 07  |                  LXI   H,$07ff
+05c5 7c        |                  MOV   A,H
+05c6 d3 3b     |                  OUT   $3b
+05c8 7d        |                  MOV   A,L
+05c9 d3 39     |                  OUT   $39
+05cb db 3a     |                  IN    $3a
+05cd fe ff     |                  CPI   $ff
+05cf c2 e1 05  |                  JNZ   $05e1
+05d2 5d        |                  MOV   E,L
+05d3 54        |                  MOV   D,H
+05d4 2b        |                  DCX   H
+05d5 1b        |                  DCX   D
+05d6 dd        |                  DB    $dd
+05d6 ca 05 c3  |                  JZ    $c305
+05d9 00        |                  NOP
+05da 04        |                  INR   B
+05db eb        |                  XCHG
+05dc cd 4c 02  |                  CALL  $024c
+05df c3 a4 05  |                  JMP   $05a4
+05e2 fb        |                  EI
+05e3 cd 09 02  |                  CALL  $0209
+05e6 c9        |                  RET
+05e7 ff        |                  RST   7
+05e8 ff        |                  RST   7
+05e9 ff        |                  RST   7
+05ea ff        |                  RST   7
+05eb ff        |                  RST   7
+05ec ff        |                  RST   7
+05ed ff        |                  RST   7
+05ee ff        |                  RST   7
+05ef ff        |                  RST   7
+05f0 ff        |                  RST   7
+05f1 ff        |                  RST   7
+05f2 ff        |                  RST   7
+05f3 ff        |                  RST   7
+05f4 ff        |                  RST   7
+05f5 ff        |                  RST   7
+05f6 ff        |                  RST   7
+05f7 ff        |                  RST   7
+05f8 ff        |                  RST   7
+05f9 ff        |                  RST   7
+05fa 31 c8 38  |                  LXI   SP,$38c8
+05fd 3e 03     |                  MVI   A,$03
+05ff d3 38     |                  OUT   $38
+0601 3e 08     |                  MVI   A,$08
+0603 30        |                  SIM
+0604 cd 19 05  |                  CALL  $0519
+0607 3e ef     |                  MVI   A,$ef
+0609 d3 39     |                  OUT   $39
+060b cd cf 06  |                  CALL  $06cf
+060e 0e fa     |                  MVI   C,$fa
+0610 3e c0     |                  MVI   A,$c0
+0612 cd 37 06  |                  CALL  $0637
+0615 0d        |                  DCR   C
+0616 c2 18 06  |                  JNZ   $0618
+0619 af        |                  XRA   A
+061a cd 37 06  |                  CALL  $0637
+061d 4e        |                  MOV   C,M
+061e cd 49 06  |                  CALL  $0649
+0621 23        |                  INX   H
+0622 7a        |                  MOV   A,D
+0623 bc        |                  CMP   H
+0624 c2 23 06  |                  JNZ   $0623
+0627 7b        |                  MOV   A,E
+0628 bd        |                  CMP   L
+0629 c2 23 06  |                  JNZ   $0623
+062c 3e fe     |                  MVI   A,$fe
+062e d3 39     |                  OUT   $39
+0630 cf        |                  RST   1
+0631 d5        |                  PUSH  D
+0632 16 10     |                  MVI   D,$10
+0634 30        |                  SIM
+0635 1e 1e     |                  MVI   E,$1e
+0637 1d        |                  DCR   E
+0638 c2 3d 06  |                  JNZ   $063d
+063b ee 80     |                  XRI   $80
+063d 15        |                  DCR   D
+063e c2 3a 06  |                  JNZ   $063a
+0641 d1        |                  POP   D
+0642 c9        |                  RET
+0643 f3        |                  DI
+0644 06 09     |                  MVI   B,$09
+0646 af        |                  XRA   A
+0647 3e c0     |                  MVI   A,$c0
+0649 cd 37 06  |                  CALL  $0637
+064c 79        |                  MOV   A,C
+064d 1f        |                  RAR
+064e 4f        |                  MOV   C,A
+064f 3e 01     |                  MVI   A,$01
+0651 1f        |                  RAR
+0652 1f        |                  RAR
+0653 cd 37 06  |                  CALL  $0637
+0656 af        |                  XRA   A
+0657 cd 37 06  |                  CALL  $0637
+065a 05        |                  DCR   B
+065b c2 4c 06  |                  JNZ   $064c
+065e fb        |                  EI
+065f c9        |                  RET
+0660 31 c8 38  |                  LXI   SP,$38c8
+0663 3e 03     |                  MVI   A,$03
+0665 d3 38     |                  OUT   $38
+0667 3e 08     |                  MVI   A,$08
+0669 30        |                  SIM
+066a cd 19 05  |                  CALL  $0519
+066d 3e fb     |                  MVI   A,$fb
+066f d3 39     |                  OUT   $39
+0671 cd cf 06  |                  CALL  $06cf
+0674 0e fa     |                  MVI   C,$fa
+0676 cd 9a 06  |                  CALL  $069a
+0679 d2 7a 06  |                  JNC   $067a
+067c 0d        |                  DCR   C
+067d c2 7c 06  |                  JNZ   $067c
+0680 cd a5 06  |                  CALL  $06a5
+0683 71        |                  MOV   M,C
+0684 23        |                  INX   H
+0685 7a        |                  MOV   A,D
+0686 bc        |                  CMP   H
+0687 c2 86 06  |                  JNZ   $0686
+068a 7b        |                  MOV   A,E
+068b bd        |                  CMP   L
+068c c2 86 06  |                  JNZ   $0686
+068f 3e fe     |                  MVI   A,$fe
+0691 d3 39     |                  OUT   $39
+0693 cf        |                  RST   1
+0694 d5        |                  PUSH  D
+0695 1e 16     |                  MVI   E,$16
+0697 1d        |                  DCR   E
+0698 c2 9d 06  |                  JNZ   $069d
+069b d1        |                  POP   D
+069c 20        |                  RIM
+069d 17        |                  RAL
+069e c9        |                  RET
+069f d5        |                  PUSH  D
+06a0 06 09     |                  MVI   B,$09
+06a2 16 00     |                  MVI   D,$00
+06a4 15        |                  DCR   D
+06a5 cd 9a 06  |                  CALL  $069a
+06a8 da aa 06  |                  JC    $06aa
+06ab cd 9a 06  |                  CALL  $069a
+06ae da aa 06  |                  JC    $06aa
+06b1 14        |                  INR   D
+06b2 cd 9a 06  |                  CALL  $069a
+06b5 d2 b7 06  |                  JNC   $06b7
+06b8 cd 9a 06  |                  CALL  $069a
+06bb d2 b7 06  |                  JNC   $06b7
+06be 7a        |                  MOV   A,D
+06bf 17        |                  RAL
+06c0 79        |                  MOV   A,C
+06c1 1f        |                  RAR
+06c2 4f        |                  MOV   C,A
+06c3 05        |                  DCR   B
+06c4 c2 a8 06  |                  JNZ   $06a8
+06c7 d1        |                  POP   D
+06c8 c9        |                  RET
+06c9 21 00 21  |                  LXI   H,$2100
+06cc 36 90     |                  MVI   M,$90
+06ce 25        |                  DCR   H
+06cf 36 f8     |                  MVI   M,$f8
+06d1 36 88     |                  MVI   M,$88
+06d3 36 c8     |                  MVI   M,$c8
+06d5 36 68     |                  MVI   M,$68
+06d7 21 c2 38  |                  LXI   H,$38c2
+06da 5e        |                  MOV   E,M
+06db 23        |                  INX   H
+06dc 56        |                  MOV   D,M
+06dd 23        |                  INX   H
+06de 4e        |                  MOV   C,M
+06df 23        |                  INX   H
+06e0 46        |                  MOV   B,M
+06e1 60        |                  MOV   H,B
+06e2 69        |                  MOV   L,C
+06e3 c9        |                  RET
+06e4 31 c8 38  |                  LXI   SP,$38c8
+06e7 3e 08     |                  MVI   A,$08
+06e9 30        |                  SIM
+06ea cd 19 05  |                  CALL  $0519
+06ed 31 c0 38  |                  LXI   SP,$38c0
+06f0 e1        |                  POP   H
+06f1 d1        |                  POP   D
+06f2 c1        |                  POP   B
+06f3 f1        |                  POP   PSW
+06f4 0a        |                  LDAX  B
+06f5 77        |                  MOV   M,A
+06f6 be        |                  CMP   M
+06f7 c2 0d 07  |                  JNZ   $070d
+06fa 03        |                  INX   B
+06fb 23        |                  INX   H
+06fc 79        |                  MOV   A,C
+06fd bb        |                  CMP   E
+06fe c2 fa 06  |                  JNZ   $06fa
+0701 78        |                  MOV   A,B
+0702 ba        |                  CMP   D
+0703 c2 fa 06  |                  JNZ   $06fa
+0706 cf        |                  RST   1
+0707 e5        |                  PUSH  H
+0708 0e 03     |                  MVI   C,$03
+070a cd 6c 05  |                  CALL  $056c
+070d d1        |                  POP   D
+070e cd 4c 02  |                  CALL  $024c
+0711 76        |                  HLT
+0712 10        |                  DB    $10
+0712 07        |                  RLC
+0713 ff        |                  RST   7
+0714 ff        |                  RST   7
+0715 ff        |                  RST   7
+0716 ff        |                  RST   7
+0717 ff        |                  RST   7
+0718 ff        |                  RST   7
+0719 ff        |                  RST   7
+071a ff        |                  RST   7
+071b ff        |                  RST   7
+071c ff        |                  RST   7
+071d ff        |                  RST   7
+071e ff        |                  RST   7
+071f ff        |                  RST   7
+0720 ff        |                  RST   7
+0721 ff        |                  RST   7
+0722 ff        |                  RST   7
+0723 ff        |                  RST   7
+0724 ff        |                  RST   7
+0725 ff        |                  RST   7
+0726 ff        |                  RST   7
+0727 21 00 00  |                  LXI   H,$0000
+072a 06 08     |                  MVI   B,$08
+072c 29        |                  DAD   H
+072d 07        |                  RLC
+072e d2 39 07  |                  JNC   $0739
+0731 19        |                  DAD   D
+0732 05        |                  DCR   B
+0733 c2 33 07  |                  JNZ   $0733
+0736 c9        |                  RET
+0737 c5        |                  PUSH  B
+0738 af        |                  XRA   A
+0739 0e 11     |                  MVI   C,$11
+073b c3 4a 07  |                  JMP   $074a
+073e 90        |                  SUB   B
+073f f2 4f 07  |                  JP    $074f
+0742 80        |                  ADD   B
+0743 29        |                  DAD   H
+0744 17        |                  RAL
+0745 c3 52 07  |                  JMP   $0752
+0748 29        |                  DAD   H
+0749 17        |                  RAL
+074a 23        |                  INX   H
+074b 0d        |                  DCR   C
+074c c2 45 07  |                  JNZ   $0745
+074f 1f        |                  RAR
+0750 c1        |                  POP   B
+0751 c9        |                  RET
+0752 c5        |                  PUSH  B
+0753 06 00     |                  MVI   B,$00
+0755 09        |                  DAD   B
+0756 eb        |                  XCHG
+0757 09        |                  DAD   B
+0758 eb        |                  XCHG
+0759 37        |                  STC
+075a 3f        |                  CMC
+075b 0d        |                  DCR   C
+075c fa 6e 07  |                  JM    $076e
+075f 1b        |                  DCX   D
+0760 2b        |                  DCX   H
+0761 1a        |                  LDAX  D
+0762 8e        |                  ADC   M
+0763 77        |                  MOV   M,A
+0764 c3 62 07  |                  JMP   $0762
+0767 c1        |                  POP   B
+0768 c9        |                  RET
+0769 c5        |                  PUSH  B
+076a 06 00     |                  MVI   B,$00
+076c 09        |                  DAD   B
+076d eb        |                  XCHG
+076e 09        |                  DAD   B
+076f eb        |                  XCHG
+0770 37        |                  STC
+0771 3f        |                  CMC
+0772 0d        |                  DCR   C
+0773 fa 85 07  |                  JM    $0785
+0776 1b        |                  DCX   D
+0777 2b        |                  DCX   H
+0778 1a        |                  LDAX  D
+0779 9e        |                  SBB   M
+077a 77        |                  MOV   M,A
+077b c3 79 07  |                  JMP   $0779
+077e c1        |                  POP   B
+077f c9        |                  RET
+0780 ff        |                  RST   7
+0781 c5        |                  PUSH  B
+0782 e5        |                  PUSH  H
+0783 f3        |                  DI
+0784 af        |                  XRA   A
+0785 06 11     |                  MVI   B,$11
+0787 3e 80     |                  MVI   A,$80
+0789 1f        |                  RAR
+078a ee 80     |                  XRI   $80
+078c 30        |                  SIM
+078d 2a b0 38  |                  LHLD  $38b0
+0790 2d        |                  DCR   L
+0791 c2 97 07  |                  JNZ   $0797
+0794 25        |                  DCR   H
+0795 c2 97 07  |                  JNZ   $0797
+0798 37        |                  STC
+0799 79        |                  MOV   A,C
+079a 1f        |                  RAR
+079b 4f        |                  MOV   C,A
+079c 05        |                  DCR   B
+079d c2 8e 07  |                  JNZ   $078e
+07a0 e1        |                  POP   H
+07a1 c1        |                  POP   B
+07a2 fb        |                  EI
+07a3 c9        |                  RET
+07a4 e5        |                  PUSH  H
+07a5 f3        |                  DI
+07a6 06 09     |                  MVI   B,$09
+07a8 20        |                  RIM
+07a9 b7        |                  ORA   A
+07aa fa af 07  |                  JM    $07af
+07ad 2a b2 38  |                  LHLD  $38b2
+07b0 2d        |                  DCR   L
+07b1 c2 b7 07  |                  JNZ   $07b7
+07b4 25        |                  DCR   H
+07b5 c2 b7 07  |                  JNZ   $07b7
+07b8 2a b0 38  |                  LHLD  $38b0
+07bb 2d        |                  DCR   L
+07bc c2 c2 07  |                  JNZ   $07c2
+07bf 25        |                  DCR   H
+07c0 c2 c2 07  |                  JNZ   $07c2
+07c3 20        |                  RIM
+07c4 17        |                  RAL
+07c5 05        |                  DCR   B
+07c6 ca d7 07  |                  JZ    $07d7
+07c9 79        |                  MOV   A,C
+07ca 1f        |                  RAR
+07cb 4f        |                  MOV   C,A
+07cc 00        |                  NOP
+07cd c3 bf 07  |                  JMP   $07bf
+07d0 e1        |                  POP   H
+07d1 fb        |                  EI
+07d2 c9        |                  RET
+07d3 ff        |                  RST   7
+07d4 ff        |                  RST   7
+07d5 ff        |                  RST   7
+07d6 ff        |                  RST   7
+07d7 ff        |                  RST   7
+07d8 ff        |                  RST   7
+07d9 26 21     |                  MVI   H,$21
+07db 36 90     |                  MVI   M,$90
+07dd 25        |                  DCR   H
+07de 36 fb     |                  MVI   M,$fb
+07e0 36 38     |                  MVI   M,$38
+07e2 36 88     |                  MVI   M,$88
+07e4 36 29     |                  MVI   M,$29
+07e6 36 9f     |                  MVI   M,$9f
+07e8 36 6c     |                  MVI   M,$6c
+07ea c3 00 10  |                  JMP   $1000
+07ed ff        |                  RST   7
+07ee ff        |                  RST   7
+07ef ff        |                  RST   7
+07f0 ff        |                  RST   7
+07f1 ff        |                  RST   7
+07f2 ff        |                  RST   7
+07f3 ff        |                  RST   7
+07f4 ff        |                  RST   7
+07f5 ff        |                  RST   7
+07f6 ff        |                  RST   7
+07f7 ff        |                  RST   7
+07f8 ff        |                  RST   7
