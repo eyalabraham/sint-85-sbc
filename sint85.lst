@@ -4,6 +4,25 @@
 *
 * Sint-85 | Sintel Systems | 8085 SBC
 *
+                    ;
+                    ; 8155/8156 IO ports (IO mapped)
+                    ;
+                    8155CMDSTAT:  EQU   $38         ; Interval command/status register 
+                    8155PORTA:    EQU   $39         ; Port A
+                    8155PORTB:    EQU   $3a         ; Port B
+                    8155PORTC:    EQU   $3b         ; Port C
+                    8155TIMRLO:   EQU   $3c         ; Low order timer count
+                    8155TIMRHI:   EQU   $3d         ; High order timer count and mode
+                    ;
+                    ; 8279 addresses (memory mapped)
+                    ;
+                    8279DATA:     EQU   $2000       ; Data read write register
+                    8279CMD:      EQU   $2100       ; Command register
+                    ;
+                    ; RAM
+                    ;
+                    BOTTOM:       EQU   $3800
+                    RAMTOP:       EQU   $38ff
 
                                   ORG   $0000
 
