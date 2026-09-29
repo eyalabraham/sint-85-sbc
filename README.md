@@ -40,12 +40,11 @@ Uses similar address decoding logic to Intel SDK85 with some changes and differe
 
 Address range read: $F800 to $FFFF
 
-````
+```
 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0
  x  x  1  x  1  x  x  x  x  x  x  x  x  x  x  x
 ----------- ----------- ----------- -----------
      7           8            0          0
      7           F            F          F
 ```
-
 
