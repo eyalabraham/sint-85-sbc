@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
         if ( ( opcode_bytes = op_codes[byte].byte_count) == 0 )
         {
             printf("       | %s DB    $%02x\n", SPACE_PAD, byte);
+            prog_counter++;
             continue;
         }
         else

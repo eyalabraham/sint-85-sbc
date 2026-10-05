@@ -38,7 +38,7 @@ Uses similar address decoding logic to Intel SDK85 with some changes and differe
 12  GNG     GND     D3      D3
 ```
 
-Address range read: $F800 to $FFFF
+Address range read: $7800 to $7FFF
 
 ```
 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0
